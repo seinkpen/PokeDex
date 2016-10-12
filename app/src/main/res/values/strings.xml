@@ -3,5 +3,5 @@
     <string name="edit_result">Enter a message</string>
     <string name="button_submit">Submit</string>
     <string name="pokemon_Question">Who\'s that Pokémon?</string>
-    <string name="its_pokemon">It\'s … </string>
+    <string name="its_pokemon">It\'s … %1$s</string>
 </resources>
