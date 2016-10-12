@@ -27,7 +27,9 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String pokemonGuess = intent.getStringExtra(MainActivity.EXTRA_RESULT);
         TextView textView = (TextView) findViewById(R.id.your_pokemon);
-        textView.setText("It's ... " + pokemonGuess);
+        String its = getResources().getString(R.string.its_pokemon);
+        String itsPokemon = String.format(its, pokemonGuess);
+        textView.setText(itsPokemon);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
