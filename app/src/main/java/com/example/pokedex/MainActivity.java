@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // sends
-    public void sendPokemon(View view){
-        Intent intent = new Intent(this,ResultActivity.class);
+    public void sendPokemon(View view) {
+        Intent intent = new Intent(this, ResultActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_result);
         String pokemonGuess = editText.getText().toString();
         intent.putExtra(EXTRA_RESULT, pokemonGuess);

@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">PokeDex</string>
+    <string name="app_name">PokéDex</string>
     <string name="edit_result">Enter a message</string>
     <string name="button_submit">Submit</string>
+    <string name="pokemon_Question">Who\'s that Pokémon?</string>
+    <string name="its_pokemon">It\'s … </string>
 </resources>

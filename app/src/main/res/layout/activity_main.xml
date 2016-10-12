@@ -16,14 +16,13 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scaleType="centerCrop"
-        android:tint="@android:color/darker_gray"
         android:src="@drawable/ditto" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Who's that Pokémon?"
+        android:text="@string/pokemon_Question"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
