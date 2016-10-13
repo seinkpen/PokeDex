@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="pokemon_imgs">
+        <item>@drawable/bulbasaur</item>
+        <item>@drawable/clefairy</item>
+        <item>@drawable/pidgey</item>
+        <item>@drawable/pikachu</item>
+        <item>@drawable/squirtle</item>
+    </integer-array>
+</resources>
