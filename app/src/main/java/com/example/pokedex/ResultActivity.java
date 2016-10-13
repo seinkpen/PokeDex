@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
@@ -25,11 +25,17 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent intent = getIntent();
-        String pokemonGuess = intent.getStringExtra(MainActivity.EXTRA_RESULT);
+        String pokemonGuess = intent.getStringExtra(MainActivity.EXTRA_GUESS_TEXT);
+        int pokemonResourceId = intent.getIntExtra(MainActivity.EXTRA_IMAGE_RESOURCE_ID, R.drawable.pidgey);
         TextView textView = (TextView) findViewById(R.id.your_pokemon);
         String its = getResources().getString(R.string.its_pokemon);
         String itsPokemon = String.format(its, pokemonGuess);
         textView.setText(itsPokemon);
+
+        ImageView imageView = (ImageView) findViewById(R.id.result_pokemon);
+        imageView.setImageResource(pokemonResourceId);
+
+
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
