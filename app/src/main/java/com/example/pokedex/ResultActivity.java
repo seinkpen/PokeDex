@@ -25,14 +25,20 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent intent = getIntent();
+        //Getting text and image from the MainActivity
         String pokemonGuess = intent.getStringExtra(MainActivity.EXTRA_GUESS_TEXT);
         int pokemonResourceId = intent.getIntExtra(MainActivity.EXTRA_IMAGE_RESOURCE_ID, R.drawable.pidgey);
+
+        //Finding the relevant views in the result screen
         TextView textView = (TextView) findViewById(R.id.your_pokemon);
+        ImageView imageView = (ImageView) findViewById(R.id.result_pokemon);
+
+        //Retrieving the "It's..." resource and putting it together with the guess
         String its = getResources().getString(R.string.its_pokemon);
         String itsPokemon = String.format(its, pokemonGuess);
-        textView.setText(itsPokemon);
 
-        ImageView imageView = (ImageView) findViewById(R.id.result_pokemon);
+        //Setting the text and image views
+        textView.setText(itsPokemon);
         imageView.setImageResource(pokemonResourceId);
 
 

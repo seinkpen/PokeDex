@@ -11,13 +11,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.pokedex.MainActivity">
 
-   <!--ATTENTION:You changed the src to something that may not work-->
+    <!--ATTENTION:You changed the src to something that may not work-->
     <ImageView
         android:id="@+id/view_pokemon"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:tint="@android:color/darker_gray" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,4 +49,3 @@
         android:textStyle="bold" />
 </LinearLayout>
 
-    <!--android:onClick="sendPokemon"-->
