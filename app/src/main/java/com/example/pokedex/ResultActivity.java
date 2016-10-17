@@ -1,23 +1,19 @@
 package com.example.pokedex;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+import java.util.HashMap;
 
 public class ResultActivity extends AppCompatActivity {
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    AllPokemon allPokemon;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,65 +22,49 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         //Getting text and image from the MainActivity
-        String pokemonGuess = intent.getStringExtra(MainActivity.EXTRA_GUESS_TEXT);
+        String pokemonGuess = intent.getStringExtra(MainActivity.EXTRA_GUESS_TEXT).trim();
         int pokemonResourceId = intent.getIntExtra(MainActivity.EXTRA_IMAGE_RESOURCE_ID, R.drawable.pidgey);
 
         //Finding the relevant views in the result screen
-        TextView textView = (TextView) findViewById(R.id.your_pokemon);
+        textView = (TextView) findViewById(R.id.your_pokemon);
         ImageView imageView = (ImageView) findViewById(R.id.result_pokemon);
 
-        //Retrieving the "It's..." resource and putting it together with the guess
+        //Setting the image views
+        imageView.setImageResource(pokemonResourceId);
+
+        allPokemon = new AllPokemon(this);
+        HashMap<String, Integer> pokeMap = allPokemon.getPokeMap();
+        boolean isGuessCorrect = false;
+
+        Integer resource = pokeMap.get(pokemonGuess.toLowerCase());
+
+        for (int i = 0; i < pokeMap.size(); i++) {
+            if (resource != null && resource == pokemonResourceId) {
+                isGuessCorrect = true;
+                break;
+            }
+        }
+        displayGuessResults(isGuessCorrect, pokemonGuess);
+    }
+
+    private void displayGuessResults(boolean isGuessCorrect, String pokemonGuess) {
+        //Retrieving the "It's..." resources and putting it together with the guess
         String its = getResources().getString(R.string.its_pokemon);
         String itsPokemon = String.format(its, pokemonGuess);
 
-        //Setting the text and image views
-        textView.setText(itsPokemon);
-        imageView.setImageResource(pokemonResourceId);
+        String noIts = getResources().getString(R.string.negative_result);
+        String notPokemon = String.format(noIts, pokemonGuess);
 
+        //Finding ImageView and setting text a tick/cross to corresponding answer
+        ImageView resultBox = (ImageView) findViewById(R.id.tick_cross);
 
+        if (isGuessCorrect) {
+            textView.setText(itsPokemon + " !");
+            resultBox.setImageResource(R.drawable.tick);
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Result Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.pokedex/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Result Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.pokedex/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
+        } else {
+            textView.setText(notPokemon + "." + "\nDo you even Pokémon?");
+            resultBox.setImageResource(R.drawable.cross);
+        }
     }
 }
