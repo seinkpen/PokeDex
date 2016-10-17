@@ -5,4 +5,5 @@
     <string name="button_submit">Soumettre</string>
     <string name="pokemon_Question">Qui est ce Pokémon?</string>
     <string name="its_pokemon">C\'est … %1$s</string>
+    <string name="negative_result">Non, non es %1$s</string>
 </resources>
