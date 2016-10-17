@@ -11,7 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.pokedex.MainActivity">
 
-    <!--ATTENTION:You changed the src to something that may not work-->
     <ImageView
         android:id="@+id/view_pokemon"
         android:layout_width="match_parent"
