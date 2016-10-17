@@ -1,5 +1,16 @@
 <resources>
-    <string name="app_name">PokeDex</string>
+    <string name="app_name">PokéDex</string>
     <string name="edit_result">Enter a message</string>
     <string name="button_submit">Submit</string>
+    <string name="pokemon_Question">Who\'s that Pokémon?</string>
+    <string name="its_pokemon">It\'s … %1$s</string>
+    <string name="negative_result">No, it\'s not %1$s</string>
+
+    <!-- Make sure this matches the Pokemon Drawable files-->
+    <string name="bulbasaur">Bulbasaur</string>
+    <string name="butterfree">Butterfree</string>
+    <string name="clefairy">Clefairy</string>
+    <string name="pidgey">Pidgey</string>
+    <string name="pikachu">Pikachu</string>
+    <string name="squirtle">Squirtle</string>
 </resources>
