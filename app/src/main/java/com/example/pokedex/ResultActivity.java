@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class ResultActivity extends AppCompatActivity {
 
-    PokemonRepository pokemonRepository;
-    TextView usersPokemonResultTextView;
+    private TextView usersPokemonResultTextView;
+    private ImageView tickOrCrossImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class ResultActivity extends AppCompatActivity {
         //Setting the image views
         revealedPokemonImageView.setImageResource(pokemonResourceId);
 
-        pokemonRepository = new PokemonRepository(this);
+        PokemonRepository pokemonRepository = new PokemonRepository(this);
         HashMap<String, Integer> pokeMap = pokemonRepository.getPokeMap();
         boolean isGuessCorrect = false;
 
@@ -46,23 +46,32 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void displayGuessResults(boolean isGuessCorrect, String usersPokemonGuess) {
-        //Retrieving the "It's..." resources and putting it together with the guess
+
+        if (isGuessCorrect) {
+            guessIsCorrect(usersPokemonGuess);
+        } else {
+            guessIsNotCorrect(usersPokemonGuess);
+        }
+    }
+
+    private void guessIsCorrect(String usersPokemonGuess) {
+
+        tickOrCrossImage = (ImageView) findViewById(R.id.tick_cross);
         String its = getResources().getString(R.string.its_pokemon);
         String itsPokemon = String.format(its, usersPokemonGuess);
 
-        String noIts = getResources().getString(R.string.negative_result);
-        String notPokemon = String.format(noIts, usersPokemonGuess);
+        usersPokemonResultTextView.setText(itsPokemon + "!");
+        tickOrCrossImage.setImageResource(R.drawable.tick);
+    }
 
-        //Finding ImageView and setting text a tick/cross to corresponding answer
-        ImageView resultBox = (ImageView) findViewById(R.id.tick_cross);
+    private void guessIsNotCorrect(String usersPokemonGuess) {
 
-        if (isGuessCorrect) {
-            usersPokemonResultTextView.setText(itsPokemon + " !");
-            resultBox.setImageResource(R.drawable.tick);
+        tickOrCrossImage = (ImageView) findViewById(R.id.tick_cross);
+        String doYouEvenPokemon = getResources().getString(R.string.do_you_pokemon);
+        String noItsNot = getResources().getString(R.string.negative_result);
+        String notPokemon = String.format(noItsNot, usersPokemonGuess);
 
-        } else {
-            usersPokemonResultTextView.setText(notPokemon + "." + "\nDo you even Pokémon?");
-            resultBox.setImageResource(R.drawable.cross);
-        }
+        usersPokemonResultTextView.setText(notPokemon + ".\n" + doYouEvenPokemon);
+        tickOrCrossImage.setImageResource(R.drawable.cross);
     }
 }

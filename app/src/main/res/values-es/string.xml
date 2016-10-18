@@ -6,4 +6,5 @@
     <string name="pokemon_question">¿Quién es ese Pokémon?</string>
     <string name="its_pokemon">Es … %1$s</string>
     <string name="negative_result">No, no es %1$s</string>
+    <string name="do_you_pokemon">¿Por lo menos Pokémon?</string>
 </resources>
