@@ -7,12 +7,12 @@ import java.util.HashMap;
 /**
  * Created by sarahinkpen on 13/10/2016.
  */
-public class AllPokemon {
+public class PokemonRepository {
 
     HashMap<String, Integer> pokeMap = new HashMap<>();
 
     //Make sure this matches the Pokemon in the Drawable file
-    public AllPokemon(Context context) {
+    public PokemonRepository(Context context) {
         pokeMap.put(context.getResources().getString(R.string.bulbasaur).toLowerCase(), R.drawable.bulbasaur);
         pokeMap.put(context.getResources().getString(R.string.butterfree).toLowerCase(), R.drawable.butterfree);
         pokeMap.put(context.getResources().getString(R.string.clefairy).toLowerCase(), R.drawable.clefairy);

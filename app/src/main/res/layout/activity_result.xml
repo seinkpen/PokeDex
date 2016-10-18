@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:scaleType="centerInside"/>
 
     <ImageView
         android:id="@+id/tick_cross"
@@ -32,7 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_gravity="center"
-        android:text=""
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
