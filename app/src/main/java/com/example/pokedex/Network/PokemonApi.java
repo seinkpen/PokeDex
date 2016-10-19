@@ -1,5 +1,9 @@
 package com.example.pokedex.Network;
 
+import android.graphics.Bitmap;
+
+import com.example.pokedex.Network.model.Pokemon;
+
 import java.util.List;
 
 /**
@@ -8,5 +12,7 @@ import java.util.List;
 public interface PokemonApi {
 
     List<Pokemon> getPokemon();
+
+    Bitmap downloadIcon();
 
 }

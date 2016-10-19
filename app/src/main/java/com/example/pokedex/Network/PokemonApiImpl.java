@@ -1,10 +1,9 @@
 package com.example.pokedex.Network;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
+import android.graphics.Bitmap;
+
+import com.example.pokedex.Network.model.Pokemon;
+
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -22,6 +21,12 @@ public class PokemonApiImpl implements PokemonApi {
             e.printStackTrace();
         }
         return pokemonList;
+    }
+
+    @Override
+    public Bitmap downloadIcon() {
+        //TODO: Implement
+        return null;
     }
 }
 

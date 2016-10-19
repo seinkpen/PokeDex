@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             randomImageId = getRandomResourceId();
         }
         //ImageView and userPokemonGuessEditText are set here because in the activity lifecycle, it always calls onResume before the activity runs
+
         ImageView mysteryPokemonImageView = (ImageView) findViewById(R.id.view_pokemon);
         mysteryPokemonImageView.setImageResource(randomImageId);
         userPokemonGuessEditText.setText("");
