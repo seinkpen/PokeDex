@@ -5,7 +5,6 @@ package com.example.pokedex.Network.model;
  */
 public class Pokemon {
     private String pokemonName;
-    private int icon;
     private String iconUrl;
 
     public String getIconUrl() {
@@ -16,7 +15,4 @@ public class Pokemon {
         return pokemonName;
     }
 
-    public int getIcon() {
-        return icon;
-    }
 }

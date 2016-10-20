@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.HashMap;
 
 public class ResultActivity extends AppCompatActivity {
@@ -21,26 +23,33 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //Getting text and image from the MainActivity
         String usersPokemonGuess = intent.getStringExtra(MainActivity.EXTRA_GUESS_TEXT).trim();
-        int pokemonResourceId = intent.getIntExtra(MainActivity.EXTRA_IMAGE_RESOURCE_ID, R.drawable.pidgey);
+        String pokemonName = intent.getStringExtra(MainActivity.EXTRA_POKEMON_NAME);
+        String pokemonImageUrl = intent.getStringExtra(MainActivity.EXTRA_POKEMON_IMAGE_URL);
+
 
         //Finding the relevant views in the result screen
         usersPokemonResultTextView = (TextView) findViewById(R.id.your_pokemon);
         ImageView revealedPokemonImageView = (ImageView) findViewById(R.id.result_pokemon);
 
         //Setting the image views
-        revealedPokemonImageView.setImageResource(pokemonResourceId);
+        Picasso.with(this).load(pokemonImageUrl).fit().centerInside().into(revealedPokemonImageView);
 
-        PokemonRepository pokemonRepository = new PokemonRepository(this);
-        HashMap<String, Integer> pokeMap = pokemonRepository.getPokeMap();
+        //I don't like that I have to do this again here as well as in the main...
+/*        PokemonRepository pokemonRepository = new PokemonRepository(this);
+        HashMap<String, String> pokeMap = pokemonRepository.getPokeMap();
         boolean isGuessCorrect = false;
 
-        Integer resource = pokeMap.get(usersPokemonGuess.toLowerCase());
+        String resource = pokeMap.get(usersPokemonGuess.toLowerCase());
 
         for (int i = 0; i < pokeMap.size(); i++) {
-            if (resource != null && resource == pokemonResourceId) {
+            if (resource != null && resource == pokemonImageUrl) {
                 isGuessCorrect = true;
                 break;
             }
+        }*/
+        boolean isGuessCorrect = false;
+        if (usersPokemonGuess.equals(pokemonName)){
+            isGuessCorrect = true;
         }
         displayGuessResults(isGuessCorrect, usersPokemonGuess);
     }

@@ -23,10 +23,5 @@ public class PokemonApiImpl implements PokemonApi {
         return pokemonList;
     }
 
-    @Override
-    public Bitmap downloadIcon() {
-        //TODO: Implement
-        return null;
-    }
 }
 

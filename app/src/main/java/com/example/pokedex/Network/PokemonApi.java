@@ -13,6 +13,4 @@ public interface PokemonApi {
 
     List<Pokemon> getPokemon();
 
-    Bitmap downloadIcon();
-
 }
