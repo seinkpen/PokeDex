@@ -1,7 +1,5 @@
 package com.example.pokedex.Network;
 
-import android.graphics.Bitmap;
-
 import com.example.pokedex.Network.model.Pokemon;
 
 import java.util.List;

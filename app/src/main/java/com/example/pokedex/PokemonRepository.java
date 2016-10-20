@@ -8,18 +8,20 @@ import com.example.pokedex.Network.PokemonApiImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PokemonRepository {
 
     List<Pokemon> pokeDex = new ArrayList<>();
 
-    //Make sure this matches the Pokemon in the Drawable file
     public PokemonRepository(Context context) {
         PokemonApi pokemonApi = new PokemonApiImpl();
         pokeDex = pokemonApi.getPokemon();
     }
 
     public Pokemon getRandomPokemon() {
-        return pokeDex.get(0);
+        Random random = new Random();
+        int randomIndex = random.nextInt(pokeDex.size());
+        return pokeDex.get(randomIndex);
     }
 }
