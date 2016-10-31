@@ -49,11 +49,11 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    private void guessIsCorrect(String usersPokemonGuess) {
+    private void guessIsCorrect(String pokemonName) {
 
         tickOrCrossImage = (ImageView) findViewById(R.id.tick_cross);
         String its = getResources().getString(R.string.its_pokemon);
-        String itsPokemon = String.format(its, usersPokemonGuess);
+        String itsPokemon = String.format(its, pokemonName);
 
         usersPokemonResultTextView.setText(itsPokemon + "!");
         tickOrCrossImage.setImageResource(R.drawable.tick);

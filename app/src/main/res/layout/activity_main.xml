@@ -36,6 +36,7 @@
         android:layout_gravity="center"
         android:hint="@string/edit_result"
         android:singleLine="true"
+        android:maxLength="20"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/white" />
 

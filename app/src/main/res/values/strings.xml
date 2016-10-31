@@ -7,11 +7,4 @@
     <string name="negative_result">No, it\'s not %1$s</string>
     <string name="do_you_pokemon">Do you even Pokémon?</string>
 
-    <!-- Make sure this matches the Pokemon Drawable files-->
-    <string name="bulbasaur">Bulbasaur</string>
-    <string name="butterfree">Butterfree</string>
-    <string name="clefairy">Clefairy</string>
-    <string name="pidgey">Pidgey</string>
-    <string name="pikachu">Pikachu</string>
-    <string name="squirtle">Squirtle</string>
 </resources>

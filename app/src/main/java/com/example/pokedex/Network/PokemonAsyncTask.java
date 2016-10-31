@@ -23,7 +23,7 @@ public class PokemonAsyncTask extends AsyncTask<Void,Void, List<Pokemon>>{
         Type listType = new TypeToken<ArrayList<Pokemon>>(){}.getType();
         List<Pokemon> pokemonList = null;
         try {
-            URL pokemonService = new URL("http://www.mocky.io/v2/5807368c1000002827f1880e");
+            URL pokemonService = new URL("http://www.mocky.io/v2/5808da3b1000001f054c631e");
             URLConnection yc = pokemonService.openConnection();
             InputStreamReader inputStreamReader = new InputStreamReader(yc.getInputStream());
             pokemonList = gson.fromJson(inputStreamReader, listType);
