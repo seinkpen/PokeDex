@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PokéDex</string>
+    <string name="edit_result">Introducir un mensaje</string>
+    <string name="button_submit">Enviar</string>
+    <string name="pokemon_question">¿Quién es ese Pokémon?</string>
+    <string name="its_pokemon">Es … %1$s</string>
+    <string name="negative_result">No, no es %1$s</string>
+    <string name="do_you_pokemon">¿Por lo menos Pokémon?</string>
+</resources>

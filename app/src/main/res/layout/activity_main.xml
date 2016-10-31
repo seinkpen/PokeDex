@@ -12,18 +12,19 @@
     tools:context="com.example.pokedex.MainActivity">
 
     <ImageView
+        android:id="@+id/view_pokemon"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scaleType="centerCrop"
-        android:tint="@android:color/darker_gray"
-        android:src="@drawable/ditto" />
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:tint="@android:color/darker_gray" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Who's that Pokémon?"
+        android:text="@string/pokemon_question"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
@@ -34,16 +35,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="@string/edit_result"
+        android:singleLine="true"
+        android:maxLength="20"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@android:color/white" />
 
     <Button
+        android:id="@+id/send_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="sendPokemon"
         android:text="@string/button_submit"
         android:textAppearance="?android:textAppearanceButton"
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="bold" />
 </LinearLayout>
+

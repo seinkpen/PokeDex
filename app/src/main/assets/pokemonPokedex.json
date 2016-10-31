@@ -1,0 +1,23 @@
+[
+  {
+    "pokemonName": "Bulbasaur",
+    "icon": 1
+  },
+  {
+    "pokemonName": "Butterfree",
+    "icon": 2
+  }, {
+  "pokemonName": "Clefairy",
+  "icon": 3
+}, {
+  "pokemonName": "Pidgey",
+  "icon": 4
+}, {
+  "pokemonName": "Pikachu",
+  "icon": 5
+},
+  {
+    "pokemonName": "Squirtle",
+    "icon": 6
+  }
+]
